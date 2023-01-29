@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="test.mappers.testMapper">
+<mapper namespace="com.care.root.member.UserMapper">
+	<resultMap type="com.care.root.member.UserMapper" id="um">
+		<result property="userid" column="userid"/>
+		<result property="userpw" column="userpw"/>
+		<result property="userpw2" column="userpw2"/>
+		<result property="username" column="username"/>
+		<result property="userphone" column="userphone"/>
+	</resultMap>
 
+	<!-- 회원가입 -->
+	<insert id = "registerbtn">
+		insert into health(userid,userpw,userpw2,username,userphone)
+		values (#{userid},#{userpw},#{userpw2},#{username},#{userphone})
+	</insert> 
+	
+	<select id = "login" resultType="com.care.root.member.UserVO">
+		select userid, userpw from health
+		where userid = #{userid} and
+		userpw = #{userpw}
+	</select>
+	
+	<select id ="idcheck" parameterType ="String" resultType="int">
+		select count(1) from health 
+		where userid = #{userid}
+	</select>
+	
 </mapper>
