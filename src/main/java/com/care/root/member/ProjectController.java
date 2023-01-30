@@ -35,6 +35,7 @@ public class ProjectController {
 		return "register";
 	}
 	
+	
 	@Autowired(required=false)
 	UserService us;
 	
@@ -66,10 +67,27 @@ public class ProjectController {
 	@ResponseBody
 	public int idcheck(@RequestParam String id) {
 		
-		System.out.println("controller!!!!!!"+id);
 		int idcheck = us.idcheck(id);
 		
 		return idcheck;
+	}
+	
+	// board controller
+	
+	@RequestMapping("hun")
+	public String hun() {
+		return "write";
+	}
+	
+	@Autowired(required=false)
+	BoardService bs;
+	
+	@PostMapping("write")
+	public String write(BoardVO vo) {
+		
+		bs.write(vo);
+		
+		return "mainpage";
 	}
 
 }

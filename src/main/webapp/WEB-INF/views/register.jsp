@@ -27,17 +27,17 @@ function register(){
 		alert("이름을 입력하세요.")
 	}else if(phone==""){
 		alert("휴대폰번호를 입력하세요.")
-	}else if(idcheck=="1"){
-		alert("id 중복확인을 체크해주세요.")
-	}else{
+	}else if(idcheck==1){
+		alert("중복체크를 확인해주세요")
+	}
+	else{
 		registerbtn.submit();
 	}
 }
 
 function idcheck(){
-	
 	var id = $("#userid").val();
-
+	
 	$.ajax({
 		url : "idcheck",
 		type : "POST",
@@ -45,20 +45,18 @@ function idcheck(){
 			id : id
 		},
 		datatype : "json",
-		success : function (idcheck){
-			console.log(idcheck)
+		success : function(idcheck){
 			if(idcheck==0){
-				alert("사용하실수 있는 아이디입니다.")
+				alert("사용하실 수 있는 아이디입니다.")
 				$("input[name=inputcheck]").attr("value",idcheck)
 			}else if(idcheck==1){
-				alert("이미사용중인 아이디입니다.")
+				alert("사용하실 수 없는 아이디입니다.")
 				$("input[name=inputcheck]").attr("value",idcheck)
 			}
 		}, error : function(){
-			alert("에러!!!!")
+			alert("에러!")
 		}
 	})
-	
 }
 
 </script>
@@ -72,7 +70,7 @@ function idcheck(){
 			<input type="text" id="userid" name="userid" placeholder="아이디를 입력하세요.">
 		</td>
 		<td>
-			<button type="button" onclick="javascript:idcheck()">ID중복체크</button>
+			<input type="button" onclick="javascript:idcheck()" value="중복체크">
 		</td>
 	</tr>
 	<tr>
@@ -103,7 +101,7 @@ function idcheck(){
 		</td>
 	</tr>
 </table>
-<input type="hidden" id="inputcheck" name ="inputcheck" value="" />
+			<input type="hidden" id="inputcheck" name="inputcheck" value=""/>
 </form>
 </body>
 </html>

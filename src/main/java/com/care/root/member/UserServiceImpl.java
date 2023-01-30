@@ -29,13 +29,12 @@ public class UserServiceImpl implements UserService {
 		return um.login(vo);
 	
 	}
-	
+
 	@Override
 	public int idcheck(String id) {
 		
-		System.out.println("impl!"+id);
-		
 		return um.idcheck(id);
 	}
+	
 }
 

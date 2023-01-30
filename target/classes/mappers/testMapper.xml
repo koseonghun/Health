@@ -10,6 +10,7 @@
 		<result property="userphone" column="userphone"/>
 	</resultMap>
 
+
 	<!-- 회원가입 -->
 	<insert id = "registerbtn">
 		insert into health(userid,userpw,userpw2,username,userphone)
@@ -22,9 +23,9 @@
 		userpw = #{userpw}
 	</select>
 	
-	<select id ="idcheck" parameterType ="String" resultType="int">
-		select count(1) from health 
+	<select id ="idcheck" parameterType="String" resultType="int">
+		select count(1) from health
 		where userid = #{userid}
 	</select>
-	
+
 </mapper>
