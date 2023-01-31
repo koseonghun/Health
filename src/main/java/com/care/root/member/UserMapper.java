@@ -8,4 +8,6 @@ public interface UserMapper {
 
 	public int idcheck(String id);
 	
+	
+	
 }
