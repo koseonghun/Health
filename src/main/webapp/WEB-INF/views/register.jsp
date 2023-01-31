@@ -29,8 +29,7 @@ function register(){
 		alert("휴대폰번호를 입력하세요.")
 	}else if(idcheck==1){
 		alert("중복체크를 확인해주세요")
-	}
-	else{
+	}else{
 		registerbtn.submit();
 	}
 }
@@ -38,6 +37,10 @@ function register(){
 function idcheck(){
 	var id = $("#userid").val();
 	
+	if(id==""){
+		alert("아이디를 입력하세요.")
+	}else
+	{
 	$.ajax({
 		url : "idcheck",
 		type : "POST",
@@ -57,6 +60,7 @@ function idcheck(){
 			alert("에러!")
 		}
 	})
+	}
 }
 
 </script>

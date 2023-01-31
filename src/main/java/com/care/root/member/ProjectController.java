@@ -1,9 +1,14 @@
 package com.care.root.member;
 
+import java.util.Locale;
+import java.util.*;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -15,12 +20,6 @@ public class ProjectController {
 		
 		return "index";		
 		
-	}
-	
-	@RequestMapping("mainpage")
-	public String mainpage(){
-		
-		return "mainpage";
 	}
 	
 	@RequestMapping("login")
@@ -74,20 +73,34 @@ public class ProjectController {
 	
 	// board controller
 	
+	
+	@Autowired(required=false)
+	BoardService bs;
+	
+	@RequestMapping(value="mainpage", method=RequestMethod.GET)
+	public String mainpage(Locale locale, Model model) throws Exception{
+		
+		List<BoardVO> boardList= bs.boardList();
+		
+		for(BoardVO ko : boardList) {
+			System.out.println(ko);
+		}
+		
+		model.addAttribute("boardList", boardList);
+		return "mainpage";
+	}
+	
 	@RequestMapping("hun")
 	public String hun() {
 		return "write";
 	}
-	
-	@Autowired(required=false)
-	BoardService bs;
 	
 	@PostMapping("write")
 	public String write(BoardVO vo) {
 		
 		bs.write(vo);
 		
-		return "mainpage";
+		return "redirect:mainpage";
 	}
 
 }

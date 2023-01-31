@@ -13,4 +13,8 @@
 	values (#{username},#{title},#{content})
 </insert>
 
+<select id="boardList" resultType="com.care.root.member.BoardVO">
+	select username,title,content from board
+</select>
+
 </mapper>

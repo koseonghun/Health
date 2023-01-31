@@ -7,5 +7,5 @@ public interface UserService {
 	public UserVO login(UserVO vo);
 
 	public int idcheck(String id);
-
+	
 }
