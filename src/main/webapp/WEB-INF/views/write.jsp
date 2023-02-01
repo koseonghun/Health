@@ -11,6 +11,7 @@
 <body>
 	<form action="write" id="write" method="POST">
 		<table>
+			
     		<tr>
 				<td>작성자</td>
 				<td><input type="text" name="username" size=10 maxlength=8></td>

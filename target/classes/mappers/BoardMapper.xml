@@ -8,13 +8,13 @@
 		<result property="content" column="content"/>
 	</resultMap>
 
-<insert id="write">
-	insert into board(username,title,content) 
-	values (#{username},#{title},#{content})
+<insert id="write" useGeneratedKeys="true" keyProperty="list">
+	insert into board(username,title,content,time) 
+	values (#{username},#{title},#{content},now())
 </insert>
 
 <select id="boardList" resultType="com.care.root.member.BoardVO">
-	select username,title,content from board
+	select list,username,title,content,time from board order by list desc
 </select>
 
 </mapper>

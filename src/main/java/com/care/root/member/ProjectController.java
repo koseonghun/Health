@@ -1,7 +1,9 @@
 package com.care.root.member;
 
-import java.util.Locale;
-import java.util.*;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -58,7 +60,7 @@ public class ProjectController {
 		UserVO login = us.login(vo);
 		
 		System.out.println("controller!!!!!!!!"+login);
-
+		
 		return login;
 	}
 	
@@ -78,13 +80,9 @@ public class ProjectController {
 	BoardService bs;
 	
 	@RequestMapping(value="mainpage", method=RequestMethod.GET)
-	public String mainpage(Locale locale, Model model) throws Exception{
+	public String mainpage(Model model) throws Exception{
 		
 		List<BoardVO> boardList= bs.boardList();
-		
-		for(BoardVO ko : boardList) {
-			System.out.println(ko);
-		}
 		
 		model.addAttribute("boardList", boardList);
 		return "mainpage";
