@@ -26,7 +26,7 @@ public class ProjectController {
 	
 	@RequestMapping("login")
 	public String login() {
-		
+		System.out.println("-sdgadga여기타느거임!!");
 		return "login";
 	}
 	
@@ -99,6 +99,12 @@ public class ProjectController {
 		bs.write(vo);
 		
 		return "redirect:mainpage";
+	}
+	
+	@RequestMapping("detail")
+	public String detail(BoardVO vo) {
+		
+		return "detail";
 	}
 
 }

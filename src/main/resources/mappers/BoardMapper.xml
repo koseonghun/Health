@@ -6,6 +6,8 @@
 		<result property="useranme" column="username"/>
 		<result property="title" column="title"/>
 		<result property="content" column="content"/>
+		<result property="list" column="list"/>
+		<result property="time" column="time"/>
 	</resultMap>
 
 <insert id="write" useGeneratedKeys="true" keyProperty="list">

@@ -35,7 +35,7 @@ body {
 				<tr>
 					<td>${board.list}</td>
 					<td>${board.username}</td>
-					<td>${board.title}</td>
+					<td><a href="detail">${board.title}</a></td>
 					<td>${board.content}</td>
 					<td>
 						<fmt:formatDate pattern="yyyy-MM-dd" value="${board.time}"/>
