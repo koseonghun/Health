@@ -7,4 +7,6 @@ public interface BoardMapper {
 	public void write(BoardVO vo);
 	
 	public List<BoardVO> boardList();
+	
+	public BoardVO detail(int list);
 }

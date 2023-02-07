@@ -101,8 +101,13 @@ public class ProjectController {
 		return "redirect:mainpage";
 	}
 	
-	@RequestMapping("detail")
-	public String detail(BoardVO vo) {
+	@RequestMapping(value="detail", method=RequestMethod.GET)
+	public String detail(Model model,int list) {
+		
+		System.out.println("여기야!!!!!!!!!!!"+list);
+		BoardVO detail = bs.detail(list);
+		model.addAttribute("detail",detail);
+		
 		
 		return "detail";
 	}

@@ -20,9 +20,15 @@ public class BoardServiceImpl implements BoardService {
 	}
 	
 	@Override
-	public void write(BoardVO vo) {
+	public void write(BoardVO  vo) {
 		
 		bm.write(vo);
+	}
+	
+	@Override
+	public BoardVO detail(int list) {
+		
+		return bm.detail(list);
 	}
 
 }

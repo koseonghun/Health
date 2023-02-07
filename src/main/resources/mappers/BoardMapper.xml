@@ -19,4 +19,9 @@
 	select list,username,title,content,time from board order by list desc
 </select>
 
+<select id="detail" resultType="com.care.root.member.BoardVO">
+	select list,username,title,content,time from board
+	where list = #{list}
+</select>
+
 </mapper>

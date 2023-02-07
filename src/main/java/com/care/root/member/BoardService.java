@@ -8,4 +8,6 @@ public interface BoardService {
 	
 	public List<BoardVO> boardList() throws Exception;
 	
+	public BoardVO detail(int list);
+	
 }
