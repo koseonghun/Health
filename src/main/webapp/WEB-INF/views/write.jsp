@@ -7,7 +7,14 @@
 <title>Insert title here</title>
 </head>
 <body>
+<script>
 
+function back(){
+	
+	
+}
+
+</script>
 <body>
 	<form action="write" id="write" method="POST">
 		<table>
@@ -27,7 +34,7 @@
     		<tr>
      			<td colspan="2"><div align="center">
      			<input type="submit" value="등록" >&nbsp;&nbsp;
-         		<input type="button" value="뒤로" onclick="";></div>
+         		<button type="button" onclick="location.href='mainpage'">뒤로</button></div>
      			</td>
     		</tr> 
 		</table>

@@ -30,5 +30,23 @@ public class BoardServiceImpl implements BoardService {
 		
 		return bm.detail(list);
 	}
+	
+	@Override
+	public void delete(BoardVO vo) {
+		
+		bm.delete(vo);
+	}
+	
+	@Override
+	public BoardVO modify(int list) {
+		
+		return bm.modify(list);
+	}
+	
+	@Override
+	public void modify2(BoardVO vo) {
+		
+		bm.modify2(vo);
+	}
 
 }

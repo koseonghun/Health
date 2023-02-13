@@ -9,4 +9,10 @@ public interface BoardMapper {
 	public List<BoardVO> boardList();
 	
 	public BoardVO detail(int list);
+	
+	public void delete(BoardVO vo);
+	
+	public BoardVO modify(int list);
+	
+	public void modify2(BoardVO vo);
 }

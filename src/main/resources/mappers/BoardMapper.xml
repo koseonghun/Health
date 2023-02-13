@@ -3,25 +3,42 @@
 
 <mapper namespace="com.care.root.member.BoardMapper">
 	<resultMap type="com.care.root.member.BoardMapper" id="bm">
-		<result property="useranme" column="username"/>
-		<result property="title" column="title"/>
-		<result property="content" column="content"/>
-		<result property="list" column="list"/>
-		<result property="time" column="time"/>
+		<result property="useranme" column="username" />
+		<result property="title" column="title" />
+		<result property="content" column="content" />
+		<result property="list" column="list" />
+		<result property="time" column="time" />
 	</resultMap>
 
-<insert id="write" useGeneratedKeys="true" keyProperty="list">
-	insert into board(username,title,content,time) 
-	values (#{username},#{title},#{content},now())
-</insert>
+	<insert id="write" useGeneratedKeys="true" keyProperty="list">
+		insert into board(username,title,content,time)
+		values (#{username},#{title},#{content},now())
+	</insert>
 
-<select id="boardList" resultType="com.care.root.member.BoardVO">
-	select list,username,title,content,time from board order by list desc
-</select>
+	<select id="boardList" resultType="com.care.root.member.BoardVO">
+		select list,username,title,content,time from board order by list desc
+	</select>
 
-<select id="detail" resultType="com.care.root.member.BoardVO">
-	select list,username,title,content,time from board
-	where list = #{list}
-</select>
+	<select id="detail" resultType="com.care.root.member.BoardVO">
+		select list,username,title,content,time from board
+		where list = #{list}
+	</select>
+
+	<delete id="delete">
+		delete from board where list =#{list}
+	</delete>
+	
+	<select id="modify" resultType="com.care.root.member.BoardVO">
+		select list,username,title,content,time from board
+		where list = #{list}
+	</select>
+	
+	<update id="modify2">
+		update board set time = now(), title=#{title}, content=#{content}
+		where list = #{list}
+	</update>
+
+
+
 
 </mapper>

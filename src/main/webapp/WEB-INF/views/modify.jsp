@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,26 +13,23 @@
 		<th>데이터</th>
 		<tr>
 			<td>이름</td>
-			<td>${detail.username}</td>
+			<td>${modify.username}</td>
 		</tr>
 		<tr>
 			<td>제목</td>
-			<td>${detail.title}</td>
+			<td><input type="text" value="${modify.title}" /></td>
 		</tr>
 		<tr>
 			<td>내용</td>
-			<td>${detail.content}</td>
+			<td><input type="text" value="${modify.content}"/></td>
 		</tr>
 		<tr>
 			<td>작성일자</td>
 			<td>
-			<fmt:formatDate pattern="yyyy-MM-dd" value="${detail.time}" />
+			<fmt:formatDate pattern="yyyy-MM-dd" value="${modify.time}" />
 			</td>
 		</tr>
-
-
 	</table>
-		<button type="button" onclick="location.href='modify?list=${detail.list}'">수정</button>
-		<button type="button" onclick="location.href='delete?list=${detail.list}'">삭제</button>
+	<button type="button" onclick="location.href='modify2?list=${modify.list}'">수정</button>
 </body>
 </html>
