@@ -31,5 +31,6 @@
 		</tr>
 	</table>
 	<button type="button" onclick="location.href='modify2?list=${modify.list}'">수정</button>
+	<button type="button" onclick="location.href='detail?list=${modify.list}'">뒤로가기</button>
 </body>
 </html>
