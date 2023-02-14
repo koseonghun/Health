@@ -7,14 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<script>
 
-function back(){
-	
-	
-}
-
-</script>
 <body>
 	<form action="write" id="write" method="POST">
 		<table>

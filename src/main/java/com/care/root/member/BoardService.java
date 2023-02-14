@@ -14,7 +14,7 @@ public interface BoardService {
 	
 	public BoardVO modify(int list);
 	
-	public void modify2(BoardVO vo);
+	public void modifybtn(BoardVO vo);
 	
 	
 }

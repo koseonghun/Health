@@ -33,6 +33,8 @@
 
 	</table>
 		<button type="button" onclick="location.href='modify?list=${detail.list}'">수정</button>
+		<button type="button" onclick="location.href='mainpage'">목록</button>
 		<button type="button" onclick="location.href='delete?list=${detail.list}'">삭제</button>
+
 </body>
 </html>

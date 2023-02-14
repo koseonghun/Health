@@ -44,9 +44,9 @@ public class BoardServiceImpl implements BoardService {
 	}
 	
 	@Override
-	public void modify2(BoardVO vo) {
-		
-		bm.modify2(vo);
+	public void modifybtn(BoardVO vo) {
+			
+		 bm.modifybtn(vo);
 	}
 
 }

@@ -1,10 +1,8 @@
 package com.care.root.member;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -119,7 +117,6 @@ public class ProjectController {
 		System.out.println("list==================="+list);
 		
 		bs.delete(vo);
-		
 		return "redirect:mainpage";
 	}
 	
@@ -132,16 +129,22 @@ public class ProjectController {
 		return "modify";
 	}
 	
-	@RequestMapping(value="modify2",method=RequestMethod.GET)
-	public String modify2(Model model,BoardVO vo, int list, String title, String content, Date time) {
+	@PostMapping("modifybtn")
+	@ResponseBody
+	public String modifybtn(@RequestParam String title, @RequestParam String content, @RequestParam int list) {
 		
-		System.out.println("title============"+title);
-		System.out.println("content=============="+content);
+		BoardVO vo = new BoardVO();
+		vo.setTitle(title);
+		vo.setContent(content);
+		vo.setList(list);
 		
-		bs.modify2(vo);
+		bs.modifybtn(vo);
 		
+		System.out.println("제목!!!!!!!!!!!!!"+title);
+		System.out.println("내용!!!!!!!!!!!!!"+content);
+		System.out.println("순번!!!!!!!!!!!!!!!"+list);
 		
-		return "redirect:mainpage";
+		return "result";
 	}
 
 }
